@@ -5,10 +5,13 @@ const items = require('./routes/api/listitems');
 const messages = require('./routes/api/messages');
 const chatroom = require('./routes/api/chatroom');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 const app = express()
 
 // const db = require('./config/keys').mongoURI
+// Middlewares
+app.use(cors())
 const db = process.env.MONGO_URI
 app.use(express.json())
 // Connect to Mongo
